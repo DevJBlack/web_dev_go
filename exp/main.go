@@ -6,7 +6,10 @@ import (
 )
 
 type name struct {
-	Name string
+	Name    string
+	Program string
+	Number int
+	Float float64
 }
 
 func main() {
@@ -16,7 +19,10 @@ func main() {
 	}
 
 	data := name{
-		Name: "<script>alert('Howdy!');</script>",
+		Name:    "John Smith",
+		Program: "Golang",
+		Number: 1027,
+		Float: 10.27,
 	}
 
 	err = t.Execute(os.Stdout, data)
