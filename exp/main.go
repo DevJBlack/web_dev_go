@@ -8,8 +8,8 @@ import (
 type name struct {
 	Name    string
 	Program string
-	Number int
-	Float float64
+	Number  int
+	Float   float64
 }
 
 func main() {
@@ -21,13 +21,21 @@ func main() {
 	data := name{
 		Name:    "John Smith",
 		Program: "Golang",
-		Number: 1027,
-		Float: 10.27,
+		Number:  1027,
+		Float:   10.27,
 	}
 
 	err = t.Execute(os.Stdout, data)
 	if err != nil {
 		panic(err)
 	}
+
+	values := map[string]int{
+		"Golang":     100,
+		"JavaScript": 90,
+		"Python":     50,
+	}
+
+	_ = values
 
 }
