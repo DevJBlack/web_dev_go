@@ -1,1 +1,33 @@
-<h1>Hello, {{.Name}}! I program in {{.Program}}, I love {{.Number}} as my favorite number and this is nice {{.Float}} </h1>
+<h1>Hello, {{.Name}}!</h1>
+<p>
+ Come here {{.Dog.Name}}
+</p>
+{{/* Need to have the {{end}} What ever is in that block will be exucuted */}}
+{{range .Slice}}
+    <b>Slice item!</b>
+    {{.}}
+{{end}}
+{{range .Map}}
+    <p>This way only prints out the value not the key with it</p>
+    {{.}}
+{{end}}
+<p>
+  Number:  {{.Number}}
+</p>
+<p>
+  Float:  {{.Float}}
+</p>
+<p>
+  Slice:  {{.Slice}}
+</p>
+<p>
+  Map:  {{.Map}}
+</p>
+<pre>
+    {{.Map}}
+</pre>
+
+<script>
+    {{/* When we assign a variable it converts it in JSON */}}
+    var m = {{.Map}}
+</script>
