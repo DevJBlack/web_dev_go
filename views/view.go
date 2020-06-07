@@ -8,6 +8,7 @@ func NewView(layout string, files ...string) *View {
 	// files is the parameter we are passing in
 	files = append(files,
 		"views/layouts/bootstrap.gohtml",
+		"views/layouts/navbar.gohtml",
 		"views/layouts/footer.gohtml",
 	)
 
