@@ -16,7 +16,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	// w is where we are writing to and nil is the data we are passing in.
 	// Passing in nil right now because we do not have any data to pass in. home.gohtml does not have any dynamic code in it.
-	err := homeView.Template.Execute(w, nil)
+	err := homeView.Template.ExecuteTemplate(w, homeView.Layout, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -24,7 +24,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 
 func contact(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := contactView.Template.Execute(w, nil)
+	err := contactView.Template.ExecuteTemplate(w, contactView.Layout, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -32,9 +32,8 @@ func contact(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
-	homeView = views.NewView("views/home.gohtml")
-	contactView = views.NewView("views/contact.gohtml")
+	homeView = views.NewView("bootstrap", "views/home.gohtml")
+	contactView = views.NewView("bootstrap", "views/contact.gohtml")
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", home)
